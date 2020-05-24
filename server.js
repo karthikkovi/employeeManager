@@ -29,7 +29,7 @@ async function init() {
         return inquirer.prompt({
             name: "viewAddUpdate",
             type: "list",
-            message: "Would you like Add, view or update a new employees or deparments?",
+            message: "Would you like Add, view or update employees or deparments?",
             choices: ["Add", "View", "Update", "Exit"]
         })
     }
@@ -109,7 +109,7 @@ async function addsomething() {
             break;
 
         case "Roles":
-            case "Employee":
+        case "Employee":
             async function newRole() {
                 return inquirer.prompt([{
                     name: "designation",
@@ -153,15 +153,15 @@ async function viewSomething() {
         case "Employee":
             console.table(await connection.query("SELECT * FROM employee"));
             break;
-        
+
         case "Department":
             console.table(await connection.query("SELECT * FROM department"));
             break;
-        
+
         case "Roles":
             console.table(await connection.query("SELECT * FROM employeeRole"));
             break;
-        
+
         default:
             break;
     }
@@ -169,8 +169,27 @@ async function viewSomething() {
 }
 
 async function updateSomething() {
-    console.log("something will be Updated");
-    init()
+
+    function userPrompt() {
+        return inquirer.prompt([{
+            name: "existingRole",
+            message: "Enter the employee ID"
+        },
+        {
+            name: "newRole",
+            message: "Enter the new role ID"
+        }])
+    }
+    console.table(await connection.query("SELECT * FROM employee"));
+
+    let employeeDetails = await userPrompt()
+    let existingEmployeeID = employeeDetails.existingRole;
+    let newRoleID = employeeDetails.newRole;
+
+    connection.query(`UPDATE employee SET roleID = "${newRoleID}" WHERE id = "${existingEmployeeID}"`);
+
+    console.table(await connection.query("SELECT * FROM employee"));
+
 }
 
 init();
