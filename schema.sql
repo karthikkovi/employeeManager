@@ -15,7 +15,7 @@ CREATE TABLE employeeRole (
     designation VARCHAR(30) NOT NULL,
     salary INT NOT NULL,
     departmentID INT,
-    FOREIGN KEY (departmentID) REFERENCES deparment(id),
+    FOREIGN KEY (departmentID) REFERENCES department(id),
     PRIMARY KEY (id)
 );
 
