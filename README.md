@@ -17,4 +17,5 @@ The command-line application will allow users to:
   * View departments, roles, employees
 
   * Update employee roles
-  
+    
+  ![alt text](https://github.com/karthikkovi/employeeManager/blob/master/screenShot.PNG?raw=true)
