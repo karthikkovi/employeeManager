@@ -10,7 +10,7 @@ const table = require("console.table");
 const connection = mysql.createConnection({
     host: "localhost",
     user: "root",
-    password: "#",
+    password: "liverpool123#",
     database: "employeemanager"
 });
 
@@ -144,7 +144,7 @@ async function viewSomething() {
             name: "viewAddUpdate",
             type: "list",
             message: "What would you like to view",
-            choices: ["Employee", "Department", "Roles", "Exit"]
+            choices: ["Employees", "Department", "Roles", "Exit"]
         })
     }
 

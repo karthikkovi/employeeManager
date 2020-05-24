@@ -1,6 +1,6 @@
 USE employeemanager;
 
-INSERT INTO department (id, employeeName) VALUES
+INSERT INTO department (id, departmentName) VALUES
     (1, "IT"),
     (2, "HR");
 
